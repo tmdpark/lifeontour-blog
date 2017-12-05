@@ -1,0 +1,9 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Web Application with Webpack 3 configuration and folder structure.",
+  "main": "app.js",
+  "repository": "git@github.com:danielparkk/webpack-boilerplate.git",
+  "author": "Daniel Park <dpark@travismathew.com>",
+  "license": "MIT"
+}
