@@ -13,7 +13,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const extractCss = new ExtractTextPlugin({ filename: './css/[name].[contenthash].css' });
+const extractCss = new ExtractTextPlugin({ filename: './css/[name].css' });
 
 module.exports = {
   // Declare the absolute path for project root.
@@ -71,6 +71,9 @@ module.exports = {
               }
             },
             {
+              loader: 'resolve-url-loader'
+            },
+            {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
@@ -93,8 +96,28 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './css/fonts'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './css/fonts'
+            }
+          }
+        ]
       }
     ]
   },
@@ -102,7 +125,7 @@ module.exports = {
   // Webpack Dev Server configuration.
   devServer: {
     // Specify where static files are served.
-    contentBase: path.resolve(__dirname, "./dist/assets/media"),
+    contentBase: path.resolve(__dirname, "./dist"),
     watchContentBase: true,
     compress: true,
     port: 1234,
