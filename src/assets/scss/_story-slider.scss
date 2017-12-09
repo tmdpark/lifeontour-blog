@@ -1,0 +1,160 @@
+@import './responsive/responsive-story-slider';
+
+.header {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  text-align: center;
+  h1 {
+    font-family: 'gotham-book', sans-serif;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    display: inline-block;
+    letter-spacing: -2px;
+    font-size: 32px;
+  }
+}
+
+.story-slider {
+  min-height: 600px;
+  height: 100vh;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.65;
+    z-index: 1;
+  }
+
+  .caption {
+    position: absolute;
+    z-index: 50;
+    user-select: text;
+    color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    span {
+      font-weight: normal;
+      font-family: 'Bulmer', sans-serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .caption__title {
+      padding-left: 20px;
+      padding-top: 20px;
+      span {
+        display: block;
+      }
+      .episode-number {
+        font-size: 36px;
+      }
+    }
+
+    .caption__content {
+      position: relative;
+      top: 200px;
+      display: block;
+      width: 100%;
+      padding: 0 20px;
+
+      .content-title {
+        font-size: 48px;
+        letter-spacing: 1.25px;
+        font-weight: lighter;
+        text-transform: uppercase;
+      }
+
+      .content-description {
+        display: none;
+        font-size: 12px;
+        font-family: 'gotham-book', sans-serif;
+      }
+
+      .story-link {
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'Bulmer', sans-serif;
+        letter-spacing: 2px;
+        padding-top: 12px;
+
+        i {
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+  }
+}
+
+.thumbnail-slider {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  padding: 0 10%;
+  overflow: hidden;
+
+  div {
+    height: inherit;
+    width: inherit;
+  }
+}
+
+.poster-link {
+  display: block;
+  height: inherit;
+  background-color: #161616;
+  cursor: pointer;
+  figure {
+    height: inherit;
+    width: inherit;
+    div {
+      height: inherit;
+      width: inherit;
+    }
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%;
+}
+
+#jamesBlake {
+  background-image: url('/media/images/slider_images/jamesblake_slider.jpg');
+}
+
+#jamesBlakeFig {
+
+  .default-poster {
+    background-image: url('/media/images/default_thumbnails/jamesblake_thumb.jpg');
+  }
+}

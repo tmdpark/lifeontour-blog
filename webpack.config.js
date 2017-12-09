@@ -12,6 +12,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractCss = new ExtractTextPlugin({ filename: './css/[name].css' });
 
@@ -21,8 +22,9 @@ module.exports = {
 
   // Entry point for our application.
   entry: {
-    app: './app.js',
-    vendor: ['jquery', 'lodash', 'aos']
+    intro: './intro_page/app.js',
+    landing: './landing_page/app.js',
+    vendors: './vendors.js'
   },
 
   // Output configuration
@@ -35,12 +37,33 @@ module.exports = {
   plugins: [
     // Clean up 'dist' folder on build.
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: "vendors",
+      // filename: "vendor.js"
+      // (Give the chunk a different name)
+
+      minChunks: Infinity,
+      // (with more entries, this ensures that no other module
+      //  goes into the vendor chunk)
     }),
+    new HtmlWebpackPlugin({
+      title: 'Intro',
+      filename: 'intro_page.html',
+      template: './intro_page/index.html',
+      chunks: ['vendors', 'intro']
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Landing',
+      filename: 'landing_page.html',
+      template: './landing_page/index.html',
+      chunks: ['vendors', 'landing']
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: './assets/media/images',
+        to: './media/images'
+      }
+    ]),
     extractCss
   ],
 
@@ -84,13 +107,13 @@ module.exports = {
         })
       },
       {
-        test: /\.(jpg|png|gif|svg)$/,
+        test: /\.(jpg|png|gif)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: './assets/media/'
+              outputPath: './media/images/'
             }
           }
         ]
@@ -102,7 +125,8 @@ module.exports = {
             loader: 'url-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: './css/fonts'
+              outputPath: './media/fonts/',
+              publicPath: '/'
             }
           }
         ]
@@ -114,7 +138,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: './css/fonts'
+              outputPath: './media/fonts/',
+              publicPath: '/'
             }
           }
         ]
