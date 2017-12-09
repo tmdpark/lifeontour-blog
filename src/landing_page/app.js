@@ -58,24 +58,48 @@ import '../assets/scss/life-on-tour.scss';
 // }
 
 $(document).ready(function() {
-  $('.story-slider').slick({
-    infinite: false,
-    arrows: false,
-    dots: false,
-    draggable: false,
-    dotsClass: 'slick-dots thumbnail-slides',
-    autoplay: true,
-    asNavFor: '.thumbnail-slider'
+  var $window = $(window);
+
+  if ($window.width() >= 992) {
+    var $slickSlider = $('.story-slider').slick({
+      infinite: false,
+      arrows: false,
+      dots: false,
+      autoplay: false,
+      asNavFor: '.thumbnail-slider'
+    });
+
+    var $thumbnailSlider = $('.thumbnail-slider').slick({
+      infinite: false,
+      slidesToShow: 5,
+      arrows: false,
+      dots: false,
+      autoplay: false,
+      asNavFor: '.story-slider'
+    });
+  } else {
+    var $slickSlider = $('.story-slider').slick({
+      infinite: false,
+      arrows: false,
+      dots: false,
+      autoplay: false,
+      asNavFor: '.thumbnail-slider'
+    });
+
+    var $thumbnailSlider = $('.thumbnail-slider').slick({
+      infinite: false,
+      slidesToShow: 1,
+      arrows: false,
+      dots: false,
+      autoplay: false,
+      asNavFor: '.story-slider'
+    });
+  }
+  $(window).resize(function() {
+    if ($(window).width() >= 992) {
+
+    } else {
+
+    }
   });
-
-  $('.thumbnail-slider').slick({
-    infinite: false,
-    arrows: false,
-    dots: false,
-    draggable: false,
-    dotsClass: 'slick-dots thumbnail-slides',
-    autoplay: true,
-    asNavFor: '.story-slider'
-  })
-
 });

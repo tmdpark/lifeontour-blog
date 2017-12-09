@@ -1,3 +1,5 @@
+@import '../story-slider';
+
 @media only screen and (min-width: 576px) {
 
 }
@@ -11,5 +13,99 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .slide {
+
+    .caption {
+      span {
+        font-size: 32px;
+        letter-spacing: 2px;
+      }
+
+      .caption__title {
+        padding-left: 32px;
+        padding-top: 32px;
+        .episode-number {
+          font-size: 44px;
+        }
+      }
+
+      .caption__content {
+        padding: 0 32px;
+
+        .content-title {
+          font-size: 64px;
+          letter-spacing: 2px;
+          font-weight: lighter;
+          text-transform: uppercase;
+        }
+
+        .content-description {
+          display: inline-block;
+          font-size: 18px;
+        }
+
+        .story-link {
+          font-size: 20px;
+          padding-top: 12px;
+
+          i {
+            position: relative;
+            top: 1px;
+          }
+        }
+      }
+    }
+  }
+
+  .thumbnail-slider {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    padding: 0 10%;
+    overflow: hidden;
+
+    div {
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  .poster-link {
+    display: block;
+    height: inherit;
+    background-color: #161616;
+    cursor: pointer;
+    figure {
+      height: inherit;
+      width: inherit;
+      div {
+        height: inherit;
+        width: inherit;
+      }
+    }
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 25%;
+  }
+
+  #jamesBlake {
+    background-image: url('/media/images/slider_images/jamesblake_slider.jpg');
+  }
+
+  #jamesBlakeFig {
+
+    .default-poster {
+      background-image: url('/media/images/default_thumbnails/jamesblake_thumb.jpg');
+    }
+  }
 
 }
