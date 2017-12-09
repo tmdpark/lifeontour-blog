@@ -1,2 +1,3 @@
-# webpack-boilerplate
-Folder structure and Webpack 3 configuration.
+# TravisMathew - Life On Tour Blog
+
+The official repository for TravisMathew's Life On Tour blog page.
