@@ -10,6 +10,7 @@
     "dev": "webpack-dev-server --inline --hot --color"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "aos": "^2.2.0",
     "flexslider": "^2.6.4",
     "jquery": "^3.2.1",

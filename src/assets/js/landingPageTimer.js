@@ -5,7 +5,7 @@
  * @author Daniel Park <dpark@travismathew.com>
  */
 
-var redirectCount = 5;
+var redirectCount = 3;
 var redirectTimer = setInterval(startRedirectTimer, 1000);
 function startRedirectTimer() {
   redirectCount = redirectCount - 1;

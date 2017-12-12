@@ -1,105 +1,94 @@
 import '../assets/scss/life-on-tour.scss';
 
-// function generateThumbnail(index) {
-//   var contentObj = [
-//     {
-//       defaultThumbnail: '/media/images/default_thumbnails/jamesblake_thumb.jpg',
-//       hoverThumbnail: '/media/images/hover_thumbnails/jamesblake_thumb.jpg'
-//     },
-//     {
-//       defaultThumbnail: '/media/images/default_thumbnails/jamesblake_thumb.jpg',
-//       hoverThumbnail: '/media/images/hover_thumbnails/jamesblake_thumb.jpg'
-//     },
-//     {
-//       defaultThumbnail: '/media/images/default_thumbnails/jamesblake_thumb.jpg',
-//       hoverThumbnail: '/media/images/hover_thumbnails/jamesblake_thumb.jpg'
-//     },
-//     {
-//       defaultThumbnail: '/media/images/default_thumbnails/jamesblake_thumb.jpg',
-//       hoverThumbnail: '/media/images/hover_thumbnails/jamesblake_thumb.jpg'
-//     },
-//     {
-//       defaultThumbnail: '/media/images/default_thumbnails/jamesblake_thumb.jpg',
-//       hoverThumbnail: '/media/images/hover_thumbnails/jamesblake_thumb.jpg'
-//     },
-//   ];
-//
-//   if (index >= 0) {
-//     var $poster = $('<a>', {
-//       href: '/',
-//       class: 'slider-poster'
-//     })
-//     .append($('<figure>', {
-//       class: 'poster-img'
-//     })
-//     .append($('<div>', {
-//       class: 'default-poster',
-//       css: {
-//         'background-image': 'url('+ contentObj[index].defaultThumbnail +')'
-//       }
-//     }))
-//     .append($('<div>', {
-//       class: 'hover-poster',
-//       css: {
-//         'background-image': 'url('+ contentObj[index].hoverThumbnail +')'
-//       }
-//     }))
-//     .append($('<figcaption>', {
-//       class: 'story-info'
-//     })
-//     .append($('<h4>', {
-//       class: 'story-intro'
-//     }))
-//     .append($('<p>', {
-//       class: 'story-title'
-//     }))));
-//     return $poster;
-//   }
-// }
-
 $(document).ready(function() {
-  var $window = $(window);
+  var animatedElements = ['.story-label', '.episode-number', '.content-title'];
 
-  if ($window.width() >= 992) {
-    var $slickSlider = $('.story-slider').slick({
-      infinite: false,
-      arrows: false,
-      dots: false,
-      autoplay: false,
-      asNavFor: '.thumbnail-slider'
-    });
-
-    var $thumbnailSlider = $('.thumbnail-slider').slick({
-      infinite: false,
-      slidesToShow: 5,
-      arrows: false,
-      dots: false,
-      autoplay: false,
-      asNavFor: '.story-slider'
-    });
-  } else {
-    var $slickSlider = $('.story-slider').slick({
-      infinite: false,
-      arrows: false,
-      dots: false,
-      autoplay: false,
-      asNavFor: '.thumbnail-slider'
-    });
-
-    var $thumbnailSlider = $('.thumbnail-slider').slick({
-      infinite: false,
-      slidesToShow: 1,
-      arrows: false,
-      dots: false,
-      autoplay: false,
-      asNavFor: '.story-slider'
-    });
+  function handleSliderTextAnimations(elements) {
+    elements[0].addClass('animated fadeInLeft')
+    elements[1].addClass('animated fadeInLeft');
+    elements[2].addClass('animated fadeInUp')
   }
-  $(window).resize(function() {
-    if ($(window).width() >= 992) {
 
-    } else {
+  function resetAnimationClasses(elements) {
+    elements[0].removeClass('animated fadeInLeft')
+    elements[1].removeClass('animated fadeInLeft');
+    elements[2].removeClass('animated fadeInUp')
+  }
 
-    }
+  function onInit() {
+    var $currentSlide = $('.slick-current').eq(0);
+    var $currentElements = animatedElements.map(function(element) {
+      return $currentSlide.find(element);
+    });
+    handleSliderTextAnimations($currentElements);
+  }
+
+  function onBefore() {
+    var $currentSlide = $('.slick-current').eq(0);
+    var $currentElements = animatedElements.map(function(element) {
+      return $currentSlide.find(element);
+    });
+    resetAnimationClasses($currentElements);
+  }
+
+  function onAfter() {
+    var $currentSlide = $('.slick-current').eq(0);
+    var $currentElements = animatedElements.map(function(element) {
+      return $currentSlide.find(element);
+    });
+    handleSliderTextAnimations($currentElements);
+  }
+
+  var $slickSlider = $('.story-slider').slick({
+    infinite: false,
+    arrows: false,
+    dots: false,
+    autoplay: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    draggable: false,
+    asNavFor: '.thumbnail-slider'
+  });
+
+  var $thumbnailSlider = $('.thumbnail-slider').slick({
+    infinite: false,
+    slidesToShow: 5,
+    arrows: false,
+    dots: false,
+    autoplay: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    draggable: true,
+    asNavFor: '.story-slider',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          draggable: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          draggable: true
+        }
+      }
+    ]
+  });
+
+  onInit();
+
+  $slickSlider.on('afterChange', function(event, slick, direction) {
+    onAfter();
+  });
+
+  $slickSlider.on('beforeChange', function(event, slick, direction) {
+    onBefore();
   });
 });

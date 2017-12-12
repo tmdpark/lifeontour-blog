@@ -58,6 +58,12 @@ module.exports = {
       template: './landing_page/index.html',
       chunks: ['vendors', 'landing']
     }),
+    new HtmlWebpackPlugin({
+      title: 'Life On Tour - James Blake',
+      filename: 'james_blake_feature.html',
+      template: './features/james_blake.html',
+      chunks: ['vendors', 'features']
+    }),
     new CopyWebpackPlugin([
       {
         from: './assets/media/images',

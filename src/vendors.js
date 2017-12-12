@@ -6,14 +6,16 @@
 
 window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
+window.AOS = require('aos');
 require('./assets/js/animsition.js');
 window.$a = $('.animsition');
 require('slick-carousel/slick/slick.js');
+
 $a.animsition({
-  inClass: 'fade-in-left-sm',
-  outClass: 'fade-out-right-sm',
-  inDuration: 1000,
-  outDuration: 800,
+  inClass: 'fade-in',
+  outClass: 'fade-out-right-lg',
+  inDuration: 1500,
+  outDuration: 1500,
   linkElement: '.animsition-link',
   // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
   loading: true,
@@ -35,3 +37,5 @@ $a.animsition({
     window.location.href = url;
   }
 });
+
+AOS.init();
