@@ -24,7 +24,8 @@ module.exports = {
   entry: {
     intro: './intro_page/app.js',
     landing: './landing_page/app.js',
-    vendors: './vendors.js'
+    vendors: './vendors.js',
+    features: './features/app.js'
   },
 
   // Output configuration
@@ -60,7 +61,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Life On Tour - James Blake',
-      filename: 'james_blake_feature.html',
+      filename: 'james_blake.html',
       template: './features/james_blake.html',
       chunks: ['vendors', 'features']
     }),
