@@ -1,0 +1,168 @@
+.tm-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.65;
+    z-index: 1;
+  }
+
+  > .slide-caption {
+    position: absolute;
+    z-index: 50;
+    user-select: text;
+    color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    > .caption-header {
+      padding-left: 20px;
+      padding-top: 20px;
+
+      > .label {
+        opacity: 0;
+        animation-duration: 1.5s;
+        animation-delay: 550ms;
+        font-weight: normal;
+        font-family: 'Bulmer', sans-serif;
+        font-size: 24px;
+        letter-spacing: 2px;
+        display: block;
+      }
+
+      > .title {
+        opacity: 0;
+        animation-duration: 1.5s;
+        animation-delay: 200ms;
+        font-size: 36px;
+        font-family: $bulmer, sans-serif;
+        display: block;
+        line-height: 30px;
+      }
+    }
+
+    > .caption-content {
+      position: relative;
+      top: 200px;
+      display: block;
+      width: 100%;
+      padding: 0 20px;
+
+      > .title {
+        font-size: 48px;
+        letter-spacing: 1.25px;
+        font-family: $bulmer, sans-serif;
+        margin: 0;
+        font-weight: lighter;
+        text-transform: uppercase;
+        animation-duration: 2s;
+      }
+
+      > .content-bottom {
+        display: none;
+        > .body-nav {
+          > .link {
+            text-transform: uppercase;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'Bulmer', sans-serif;
+            letter-spacing: 2px;
+            padding-top: 12px;
+
+            i {
+              position: relative;
+              top: 1px;
+            }
+          }
+        }
+
+        > .text {
+          @extend .text-paragraph;
+          display: none;
+          font-size: 12px;
+          font-family: 'gotham-book', sans-serif;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+  .tm-slide {
+    > .slide-caption {
+
+      > .caption-header {
+        padding-left: 30px;
+        padding-top: 30px;
+
+        > .label {
+          font-size: 28px;
+        }
+
+        > .title {
+          font-size: 40px;
+          line-height: 34px;
+        }
+      }
+
+      > .caption-content {
+        top: 160px;
+        padding: 0 30px;
+
+        > .title {
+          font-size: 64px;
+          line-height: 64px;
+          letter-spacing: 5px;
+          font-family: $bulmer, sans-serif;
+          margin: 0;
+          font-weight: lighter;
+          text-transform: uppercase;
+          animation-duration: 2s;
+        }
+
+        > .content-bottom {
+          display: flex;
+          flex-direction: row;
+
+          > .body-nav {
+            width: 220px;
+
+            .divider {
+              margin-bottom: 24px;
+            }
+
+            >.link {
+              padding-top: 0;
+              float: right;
+            }
+          }
+
+          > .text-paragraph {
+            width: 660px;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+}

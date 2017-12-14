@@ -1,0 +1,28 @@
+.episode-content {
+  letter-spacing: 0.025em;
+
+  > .intro {
+    font-family: 'Bulmer', sans-serif;
+  }
+
+  > .text {
+    font-family: 'gotham-book', sans-serif;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .episode-content {
+
+    > .intro {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    > .text {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+  }
+
+}

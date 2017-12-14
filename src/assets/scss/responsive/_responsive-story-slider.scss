@@ -1,20 +1,4 @@
-@import '../story-slider';
-
-@media screen and (min-width: 576px) {
-  .story-slider {
-    height: calc(100vh - 100px);
-  }
-  .thumbnail-slider {
-    visibility: visible;
-    height: 240px;
-  }
-}
-
 @media only screen and (min-width: 768px) {
-  .slider-container {
-    padding-bottom: 100px;
-  }
-
   .story-slider {
     height: calc(100vh - 200px);
   }

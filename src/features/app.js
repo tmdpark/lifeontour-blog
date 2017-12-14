@@ -1,7 +1,5 @@
-window.plyr = require('plyr');
-
-import '../assets/scss/life-on-tour.scss';
+import '../assets/scss/app.scss';
 
 $(document).ready(function() {
-  plyr.setup();
+  var $logo = $('.video-wrapper').children('.logo');
 });

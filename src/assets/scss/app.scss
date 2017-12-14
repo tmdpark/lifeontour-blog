@@ -1,0 +1,57 @@
+// Configuration
+@import 'variables';
+
+// Global
+@import 'global/normalize';
+@import 'global/typography';
+@import 'global/animations';
+
+// Third Party
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+@import '~plyr/src/scss/plyr';
+
+// Base
+@import 'base/base';
+
+// Layout
+@import 'layouts/*';
+
+// Elements
+@import 'elements/*';
+
+// Components
+@import './themify-icons/themify-icons';
+@import './life-on-tour/variables';
+@import './life-on-tour/button';
+@import './life-on-tour/navbar';
+@import '../css/grid.css';
+
+@import './components/**';
+
+.image-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+
+  p {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.24px;
+  }
+}
+
+.landingpage-img {
+  position: absolute;
+  width: 200px;
+  height: auto;
+}
+
+@import './responsive/responsive-story-slider';
+@import './responsive/responsive-landingpage-body';
+@import './responsive/responsive-landingpage-footer';

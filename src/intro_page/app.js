@@ -1,4 +1,4 @@
-import '../assets/scss/life-on-tour.scss';
+import '../assets/scss/app.scss';
 
 // Start a redirect timer.
 
@@ -6,5 +6,5 @@ $(document).ready(function() {
   // Landing page redirect and timer.
   require('../assets/js/landingPageTimer.js');
 
-  $('#introImg').delay(500).fadeIn(750);
+  $('.intro-content').children('.image').delay(500).fadeIn(750);
 });

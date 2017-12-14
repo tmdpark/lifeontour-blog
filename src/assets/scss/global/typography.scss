@@ -1,0 +1,85 @@
+// Font Family
+@import url('https://fonts.googleapis.com/css?family=Bentham');
+@font-face {
+  font-family: 'gotham-book';
+  src: url("../fonts/gotham-book-webfont.eot");
+  src: url("../fonts/gotham-book-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gotham-book-webfont.woff") format("woff"), url("../fonts/gotham-book-webfont.ttf") format("truetype"), url("../fonts/gotham-book-webfont.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bulmer';
+  src: url("../fonts/BulmerMTStd-Regular.eot");
+  src: url("../fonts/BulmerMTStd-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/BulmerMTStd-Regular.woff") format("woff"), url("../fonts/BulmerMTStd-Regular.ttf") format("truetype"), url("../fonts/BulmerMTStd-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bulmer';
+  src: url("../fonts/BulmerMTStd-Bold.eot");
+  src: url("../fonts/BulmerMTStd-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/BulmerMTStd-Bold.woff") format("woff"), url("../fonts/BulmerMTStd-Bold.ttf") format("truetype"), url("../fonts/BulmerMTStd-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+html, body {
+  font-family: $gotham, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $white;
+  /* Adjust font size */
+  -webkit-text-size-adjust: 100%;
+  /* Font varient */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+.text-h1 {
+  font-size: $h1-font-size;
+}
+
+.text-h2 {
+  font-size: $h2-font-size
+}
+
+.text-h3 {
+  font-size: $h3-font-size;
+}
+
+.text-h4 {
+  font-size: $h4-font-size;
+}
+
+.text-h5 {
+  font-size: $h5-font-size;
+}
+
+.text-subhead {
+  font-size: 1.4rem;
+}
+
+.text-paragraph {
+  font-size: $font-size-base;
+}
+
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-subhead,
+.text-paragraph {
+  margin: 0;
+
+  &.-bulmer {
+    font-family: $bulmer, sans-serif;
+  }
+}

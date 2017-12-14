@@ -1,0 +1,22 @@
+*,
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: $body-bg;
+}
+
+.slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide > div {
+  height: 100%;
+}

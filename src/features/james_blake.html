@@ -14,12 +14,108 @@
 </head>
 
 <body>
-  <div class='animsition'>
-    <section class="feature-page">
-      <div data-type="youtube" data-video-id="ctvlUvN6wSE">
+  <div class='animsition blog-page'>
+    <section class="video-wrapper">
+      <img class="logo animated fadeInDown" src="/media/images/lot_logo.png" alt="Life On Tour" />
+      <div class="episode-video">
+        <div id="player"></div>
       </div>
     </section>
+    <section class="episode-details">
+      <div class="row _aligncenter">
+        <div class="col-lg-auto">
+          <div class="episode-number">
+            <p class="subtitle">
+              episode.
+            </p>
+            <div class="title">
+              01
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="episode-title">
+            <p class="subtitle">
+              Life On Tour presents
+            </p>
+            <h2 class="title">James Blake</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="episode-introduction">
+      <div class="row _aligncenter">
+        <div class="col-lg-8">
+          <div class="episode-content">
+            <p class="intro">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin leo congue, mattis nisl quis, dapibus lorem. Integer posuere ullamcorper ornare. Suspendisse at diam fermentum, sagittis sem sodales, gravida elit. Suspendisse mattis congue turpis, non dignissim erat rutrum elementum. Fusce sed sagittis velit.
+            </p>
+            <p class="text">
+              Phasellus venenatis erat nec aliquam tincidunt. Cras ornare elementum porttitor. Maecenas vel velit et metus ultricies placerat vitae ut sem. Ut venenatis maximus ex ut gravida. Nam a viverra quam. Duis vulputate ex in sollicitudin commodo. Vivamus a ex dignissim, tincidunt tellus sit amet, congue est.
+            </p>
+            <p class="text">
+              Sed semper, nunc eu vestibulum dictum, enim nisi vestibulum dui, in eleifend mi purus quis lorem. Fusce suscipit eget risus egestas consequat. Proin interdum mi ex, at mollis mi condimentum eget. Duis ac ante et sapien eleifend suscipit. Integer est sem, consequat id nisi volutpat, rutrum tempor nisi. Mauris feugiat, risus eget eleifend faucibus, felis tellus molestie augue, sit amet vestibulum massa lorem vitae quam. Quisque leo risus, egestas ut cursus vel, congue ac orci.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-auto">
+          <div class="episode-image-wrapper">
+            <img class="bodyimage" src="http://via.placeholder.com/250x380" alt="Image Here" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='episode-body-image'>
+      <img class="bodyimage" alt="Body Image Large Here" src="http://via.placeholder.com/1200x628"/>
+    </section>
   </div>
+  <script type="text/javascript">
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'ctvlUvN6wSE',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        },
+        playerVars: {
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      // event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        // setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+
+    function stopVideo() {
+      player.stopVideo();
+    }
+  </script>
 </body>
 
 </html>

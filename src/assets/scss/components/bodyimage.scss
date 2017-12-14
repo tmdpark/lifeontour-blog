@@ -1,0 +1,10 @@
+.bodyimage {
+  display: inline-block;
+}
+
+@media only screen and (min-width: 768px) {
+  .bodyimage {
+    max-height: 450px;
+    width: auto;
+  }
+}

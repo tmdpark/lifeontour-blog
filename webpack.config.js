@@ -108,6 +108,9 @@ module.exports = {
               options: {
                 sourceMap: true
               }
+            },
+            {
+              loader: 'import-glob-loader'
             }
           ],
           fallback: 'style-loader'
@@ -121,6 +124,17 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: './media/images/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(mov|mp4)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
             }
           }
         ]

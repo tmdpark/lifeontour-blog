@@ -1,0 +1,17 @@
+.page-header {
+  &.-slider {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100px;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .page-header {
+    &.-slider {
+      padding-bottom: 10px;
+    }
+  }
+}

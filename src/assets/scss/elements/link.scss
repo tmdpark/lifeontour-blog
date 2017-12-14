@@ -1,0 +1,20 @@
+.link {
+  text-decoration: none;
+  
+  &.-button {
+    display: block;
+    height: 42px;
+    width: 180px;
+    color: $white;
+    background-color: $black;
+    transition: border-color 0.4s ease;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid;
+    border-color: #black;
+  }
+
+  &.-button:hover {
+    border-color: $white;
+  }
+}

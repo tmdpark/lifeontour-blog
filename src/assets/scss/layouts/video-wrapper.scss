@@ -1,0 +1,31 @@
+.video-wrapper {
+  height: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  padding-bottom: 56.25%;
+
+  > .logo {
+    position: absolute;
+    z-index: 1;
+    height: 40px;
+    animation-duration: 1s;
+    animation-delay: 1.3s;
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .video-wrapper {
+    height: auto;
+    width: auto;
+
+    > .logo {
+      height: 100px;
+      width: 100px;
+      top: 12px;
+      left: 12px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import '../assets/scss/life-on-tour.scss';
+import '../assets/scss/app.scss';
 
 $(document).ready(function() {
-  var animatedElements = ['.story-label', '.episode-number', '.content-title'];
+  var animatedElements = ['.animated-label', '.animated-episode', '.animated-title'];
 
   function handleSliderTextAnimations(elements) {
     elements[0].addClass('animated fadeInLeft')
@@ -20,6 +20,7 @@ $(document).ready(function() {
     var $currentElements = animatedElements.map(function(element) {
       return $currentSlide.find(element);
     });
+    console.log($currentElements);
     handleSliderTextAnimations($currentElements);
   }
 
@@ -39,7 +40,7 @@ $(document).ready(function() {
     handleSliderTextAnimations($currentElements);
   }
 
-  var $slickSlider = $('.story-slider').slick({
+  var $slickSlider = $('.landingpage-slider').slick({
     infinite: false,
     arrows: false,
     dots: false,

@@ -30,6 +30,9 @@
     z-index: 2;
     h4 {
       letter-spacing: 6px;
+      font-size: 20px;
+      font-family: $bulmer, sans-serif;
+      font-weight: lighter;
     }
     img {
       display: inline-block;
@@ -43,5 +46,11 @@
       max-width: 540px;
       text-align: center;
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .body-content {
+    padding: 100px 0;
   }
 }
